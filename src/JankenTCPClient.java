@@ -104,7 +104,8 @@ public class JankenTCPClient {
             System.err.println("ポート番号が不正か、サーバが起動していません");
             System.err.println("サーバが起動しているか確認してください");
             System.err.println("別のポート番号を指定してください(6000など)");
-        } catch (Exception e) {
+        } 
+        catch (Exception e) {
             System.err.println("エラーが発生したのでプログラムを終了します");
             throw new RuntimeException(e);
         }
