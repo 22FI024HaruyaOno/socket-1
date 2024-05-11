@@ -18,6 +18,7 @@ public class JankenTCPServer {
             ServerSocket server = new ServerSocket(port); // ポート番号を指定し、クライアントとの接続の準備を行う
             boolean Continue = true;
             while(Continue) {
+                Continue = false;
                 Socket socket = server.accept(); // クライアントからの接続要求を待ち、
                 // 要求があればソケットを取得し接続を行う
                 System.out.println("接続しました。相手の入力を待っています......");
@@ -35,6 +36,7 @@ public class JankenTCPServer {
                         switch (npc.getHand()) {
                             case 1:
                                 npc.setMessage("おっと!\n " + "あいこだね");
+                                Continue = true;
                                 break;
                             case 2:
                                 npc.setMessage("おめでとう!\n" + "君の勝ちだ!");
@@ -45,6 +47,7 @@ public class JankenTCPServer {
                             default:
                                 break;
                         }
+                        Continue = true;
                         break;
                     case 2:
                         switch (npc.getHand()) {
@@ -53,6 +56,7 @@ public class JankenTCPServer {
                                 break;
                             case 2:
                                 npc.setMessage("おっと!\n " + "あいこだね");
+                                Continue = true;
                                 break;
                             case 3:
                                 npc.setMessage("おめでとう!\n" + "君の勝ちだ!");
@@ -60,6 +64,7 @@ public class JankenTCPServer {
                             default:
                                 break;
                         }
+                        Continue = true;
                         break;
                     case 3:
                         switch (npc.getHand()) {
@@ -71,14 +76,15 @@ public class JankenTCPServer {
                                 break;
                             case 3:
                                 npc.setMessage("おっと!\n " + "あいこだね");
+                                Continue = true;
                                 break;
                             default:
                                 break;
                         }
+                        Continue = true;
                         break;
                     default:
                         npc.setMessage("終了します");
-                        Continue = false;
                         break;
                 }
 
